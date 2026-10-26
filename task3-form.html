@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Order Wizard - Glitch Vault</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg custom-navbar sticky-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <i class="fas fa-gamepad"></i> GLITCH VAULT
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Store</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Library</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#news">News</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="task3-form.html">Pre-Order</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section-padding">
+            <div class="container">
+                <div class="row g-5 justify-content-center">
+
+                    <div class="col-lg-4 order-lg-2">
+                        <div class="game-board-card p-4" style="position:sticky;top:90px;">
+                            <h5 style="color:var(--text-primary);margin-bottom:16px;">
+                                <i class="fas fa-eye text-accent me-2"></i>Live Preview
+                            </h5>
+                            <div id="preview-edition" style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:4px;">Select an edition...</div>
+                            <div id="preview-name"    style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:4px;">Name: —</div>
+                            <div id="preview-platform" style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:4px;">Platform: —</div>
+                            <div id="preview-qty"     style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:12px;">Qty: —</div>
+                            <div id="preview-promo"   style="color:var(--accent);font-size:0.85rem;min-height:20px;margin-bottom:8px;"></div>
+                            <div id="preview-total"   style="color:var(--accent);font-size:2rem;font-weight:800;font-family:'Montserrat',sans-serif;">$0.00</div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="col-lg-8 order-lg-1">
+                        <h2 class="section-title">Pre-Order Wizard</h2>
+                        <p style="color:var(--text-secondary);margin-bottom:32px;">Reserve your copy. Errors are shown instantly as you type.</p>
+
+                        <form id="validation-form" class="custom-form" novalidate>
+                            <div id="error-summary" class="alert alert-danger d-none" role="alert"></div>
+
+                            <div class="row g-3">
+                                
+                                <div class="col-md-6">
+                                    <label for="edition" class="form-label">Edition</label>
+                                    <select class="form-select custom-input" id="edition" required>
+                                        <option value="">Select Edition...</option>
+                                        <option value="standard" data-price="69.99" data-seats="5">Standard ($69.99) — 5 left</option>
+                                        <option value="ultimate" data-price="99.99" data-seats="2">Ultimate ($99.99) — 2 left</option>
+                                        <option value="collectors" data-price="149.99" data-seats="1">Collector's ($149.99) — 1 left</option>
+                                    </select>
+                                    <div class="invalid-feedback"></div>
+                                </div>
+
+                               
+                                <div class="col-md-6">
+                                    <label for="quantity" class="form-label">Quantity</label>
+                                    <input type="number" class="form-control custom-input" id="quantity" min="1" max="10" value="" placeholder="1–10" required>
+                                    <div class="invalid-feedback"></div>
+                                </div>
+
+                               
+                                <div class="col-12">
+                                    <label for="name" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control custom-input" id="name" placeholder="John Doe" required>
+                                    <div class="invalid-feedback"></div>
+                                </div>
+
+                               
+                                <div class="col-12">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control custom-input" id="email" placeholder="player@example.com" required>
+                                    <div class="invalid-feedback"></div>
+                                </div>
+
+                               
+                                <div class="col-md-6">
+                                    <label for="platform" class="form-label">Platform</label>
+                                    <select class="form-select custom-input" id="platform" required>
+                                        <option value="">Select Platform...</option>
+                                        <option value="pc">PC (Glitch Vault Launcher)</option>
+                                        <option value="ps5">PlayStation 5</option>
+                                        <option value="xbox">Xbox Series X</option>
+                                    </select>
+                                    <div class="invalid-feedback"></div>
+                                </div>
+
+                               
+                                <div class="col-md-6">
+                                    <label for="promo" class="form-label">Promo Code <span style="color:var(--text-secondary);font-size:0.8rem;">(optional — try NEON20)</span></label>
+                                    <input type="text" class="form-control custom-input" id="promo" placeholder="e.g. NEON20">
+                                    <div class="invalid-feedback"></div>
+                                </div>
+
+                                <div class="col-12 mt-2">
+                                    <button type="submit" class="btn btn-accent btn-lg w-100">
+                                        <i class="fas fa-lock me-2"></i>Secure Pre-Order
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                      
+                        <div id="success-result" class="d-none"></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="custom-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>GLITCH VAULT</h5>
+                    <p>Your premium destination for the best PC and console games.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>SUPPORT</h5>
+                    <a href="#">Help Center</a>
+                    <a href="#">Account</a>
+                    <a href="#">Refund Policy</a>
+                </div>
+                <div class="col-md-4">
+                    <h5>FOLLOW US</h5>
+                    <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="#"><i class="fab fa-discord"></i> Discord</a>
+                    <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+                </div>
+            </div>
+            <hr>
+            <p class="text-center">&copy; 2026 Glitch Vault. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/task3.js"></script>
+</body>
+</html>
