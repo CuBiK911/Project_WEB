@@ -35,7 +35,7 @@ function render() {
         bundleState.filter === 'all' || p.category === bundleState.filter
     );
     document.getElementById('bundle-empty-msg').classList.toggle('d-none', products.length > 0);
-    grid.innerHTML = '';
+    while (grid.firstChild) grid.removeChild(grid.firstChild);
 
     for (const p of products) {
         const sel = bundleState.selected.some(s => s.id === p.id);
@@ -94,7 +94,7 @@ function render() {
 
     const hint = document.getElementById('bundle-selection-hint');
     hint.style.display = bundleState.selected.length ? 'none' : 'block';
-    list.innerHTML = '';
+    while (list.firstChild) list.removeChild(list.firstChild);
 
     for (const item of bundleState.selected) {
         const li = document.createElement('li');
@@ -143,36 +143,28 @@ function render() {
 
     const canSave = !over && bundleState.selected.length > 0;
     saveBtn.disabled = !canSave;
-    saveBtn.classList.toggle('disabled', !canSave);
     saveBtn.style.opacity = canSave ? '1' : '0.5';
 
   
     document.getElementById('bundle-saved-count').textContent = bundleState.saved.length;
-    savedList.innerHTML = '';
+    while (savedList.firstChild) savedList.removeChild(savedList.firstChild);
 
-    if (bundleState.saved.length === 0) {
-        const p = document.createElement('p');
-        p.className = 'small mb-0';
-        p.textContent = '';
-        savedList.appendChild(p);
-    } else {
-        for (let i = 0; i < bundleState.saved.length; i++) {
-            const row = document.createElement('div');
-            row.className = 'd-flex justify-content-between px-2 py-2 rounded';
-            row.style.backgroundColor = 'rgba(255,255,255,0.05)';
+    for (let i = 0; i < bundleState.saved.length; i++) {
+        const row = document.createElement('div');
+        row.className = 'd-flex justify-content-between px-2 py-2 rounded';
+        row.style.backgroundColor = 'rgba(255,255,255,0.05)';
 
-            const num = document.createElement('span');
-            num.className = 'small ';
-            num.textContent = `#${i + 1}`;
+        const num = document.createElement('span');
+        num.className = 'small';
+        num.textContent = `#${i + 1}`;
 
-            const val = document.createElement('span');
-            val.className = 'small fw-bold';
-            val.style.color = 'var(--accent)';
-            val.textContent = `$${bundleState.saved[i].total.toFixed(2)}`;
+        const val = document.createElement('span');
+        val.className = 'small fw-bold';
+        val.style.color = 'var(--accent)';
+        val.textContent = `$${bundleState.saved[i].total.toFixed(2)}`;
 
-            row.append(num, val);
-            savedList.appendChild(row);
-        }
+        row.append(num, val);
+        savedList.appendChild(row);
     }
 }
 

@@ -4,7 +4,6 @@
     --bg-section: #141824;     
     --bg-card: #1a1f2e;       
     --accent: #f99e1a;        
-    --accent-glow: rgba(249, 158, 26, 0.3);
     --text-primary: #ffffff;
     --text-secondary: #c0c5d0;
     --border: rgba(255, 255, 255, 0.1);
@@ -27,10 +26,6 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
 .text-accent { 
     color: var(--accent) !important;
 }
-.bg-accent { 
-    background-color: var(--accent) !important; 
-    color: var(--bg-deep) !important; 
-}
 .bg-soft { 
     background-color: var(--bg-section);
 }
@@ -50,12 +45,14 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
     padding: 80px 0;
  }
 .hero-content { 
-    max-width: 700px; 
+    max-width: 800px;
+    margin: 0 auto;
 }
 .hero-buttons { 
     display: flex;
-     gap: 15px; 
-     flex-wrap: wrap; 
+    gap: 15px; 
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .card-footer { 
@@ -152,23 +149,40 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
 }
 .hero-section {
     min-height: 90vh;
-    background: linear-gradient(135deg, var(--bg-deep) 0%, #1a1025 50%, #251a10 100%);
+    background: var(--bg-deep);
     position: relative;
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     overflow: hidden;
+}
+.hero-video-wrap {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.55;
+    display: block;
+    pointer-events: none;
 }
 .hero-section::before {
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1920&q=80') center/cover;
-    opacity: 0.3;
-    z-index: 0;
+    background: linear-gradient(to bottom, rgba(10,14,26,0.15) 0%, rgba(10,14,26,0.55) 100%);
+    z-index: 1;
 }
 .hero-section .container {
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 .btn-accent {
     background-color: var(--accent);
@@ -327,10 +341,65 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
 .custom-footer a:hover {
     color: var(--accent);
 }
+/* Scroll-reveal animation classes (toggled by jQuery) */
+.reveal-hidden {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Focus styles — keyboard accessibility */
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+.btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    box-shadow: none;
+}
+.custom-input:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 2px rgba(249,158,26,0.25) !important;
+}
+
+/* Toast notification */
+.gv-toast {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--accent);
+    color: #111;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    padding: 12px 28px;
+    border-radius: 6px;
+    opacity: 0;
+    z-index: 9999;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+/* is-valid / is-invalid colours for dark theme */
+.form-control.is-valid, .form-select.is-valid {
+    border-color: #4caf50 !important;
+    background-image: none;
+}
+.form-control.is-invalid, .form-select.is-invalid {
+    border-color: #e05555 !important;
+    background-image: none;
+}
+.invalid-feedback { color: #e05555; font-size: 0.82rem; }
+.valid-feedback   { color: #4caf50; font-size: 0.82rem; }
+
 @media (max-width: 375px) {
-    .custom-m form { display: none; }
     .hero-section h1 { font-size: 2.5rem; }
-    
     .section-title { font-size: 1.8rem; }
 }
 

@@ -1,4 +1,14 @@
 
+var GAME_NAMES = {
+    mta6:     { title: 'Major Theft Auto 6: 2026'  },
+    echoes:   { title: 'Echoes of Aethelgard'       },
+    whispers: { title: 'Whispers in the Pines'      },
+    chrono:   { title: 'Chrono Tactics'             }
+};
+
+var _gameSlug = new URLSearchParams(window.location.search).get('game') || 'mta6';
+var _gameInfo = GAME_NAMES[_gameSlug] || GAME_NAMES['mta6'];
+
 const PROMO_CODES = ['NEON20', 'VAULT10', 'GV2026'];
 
 var form        = document.getElementById('validation-form');
@@ -12,6 +22,15 @@ var errorSummary = document.getElementById('error-summary');
 
 form.noValidate = true;
 
+// Set page heading and document title based on game
+document.title = 'Pre-Order ' + _gameInfo.title + ' - Glitch Vault';
+var _h2 = document.querySelector('.section-title');
+if (_h2) _h2.textContent = 'Pre-Order: ' + _gameInfo.title;
+
+var _gameLabel = document.createElement('div');
+_gameLabel.style.cssText = 'color:var(--accent);font-weight:800;font-family:Montserrat,sans-serif;font-size:1rem;margin-bottom:12px;';
+_gameLabel.textContent = _gameInfo.title;
+document.getElementById('preview-edition').parentNode.insertBefore(_gameLabel, document.getElementById('preview-edition'));
 
 function updatePreview() {
     var opt   = editionEl.options[editionEl.selectedIndex];
@@ -91,7 +110,7 @@ function validateField(field) {
 
   
     var feedback = field.nextElementSibling;
-    if (!isValid && val !== '') {
+    if (!isValid) {
         field.classList.add('is-invalid');
         field.classList.remove('is-valid');
         field.setAttribute('aria-invalid', 'true');
@@ -130,11 +149,10 @@ form.addEventListener('submit', function(e) {
     var firstBad   = null;
 
     for (var i = 0; i < allFields.length; i++) {
-        var f   = allFields[i];
-        var ok  = validateField(f);
-        
+        var f  = allFields[i];
+        var ok = validateField(f);
         if (f === promoEl && f.value.trim() === '') continue;
-        if (!ok || f.value.trim() === '') {
+        if (!ok || (f !== promoEl && f.value.trim() === '')) {
             errorCount++;
             if (!firstBad) firstBad = f;
         }
@@ -155,7 +173,7 @@ form.addEventListener('submit', function(e) {
 
 function buildSuccess() {
     var result = document.getElementById('success-result');
-    result.innerHTML = '';
+    while (result.firstChild) result.removeChild(result.firstChild);
     result.className = 'game-board-card p-5 text-center';
 
     var opt   = editionEl.options[editionEl.selectedIndex];
@@ -187,6 +205,7 @@ function buildSuccess() {
     detailsTable.style.maxWidth = '360px';
 
     var rows = [
+        ['Game',     _gameInfo.title],
         ['Name',     nameEl.value],
         ['Email',    emailEl.value],
         ['Edition',  opt.text.split('—')[0].trim()],

@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 Glitch Vault</title>
+    <title>Game Details - Glitch Vault</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    
 </head>
 <body>
 
@@ -25,7 +24,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="index.html">Store</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Library</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#top-sellers">Library</a></li>
                         <li class="nav-item"><a class="nav-link" href="index.html#news">News</a></li>
                         <li class="nav-item"><a class="nav-link" href="task3-form.html">Pre-Order</a></li>
                     </ul>
@@ -39,52 +38,45 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8">
-                        <span class="badge-accent">PRE-ORDER NOW</span>
-                        <h1>Major Theft Auto 6: <span class="text-accent">2026</span></h1>
-                        <p>The wait is over. Return to Vice City in the most expansive, dynamic open-world game ever created. Rise through the ranks of the criminal underworld, build your empire, and survive the neon nights.</p>
+                        <span id="gd-badge" class="badge-accent">PRE-ORDER NOW</span>
+                        <h1 id="gd-title" style="margin-top:12px;"></h1>
+                        <p id="gd-desc"></p>
                         <div class="game-meta">
-                            <div><strong>Developer:</strong> Neon Studios</div>
+                            <div><strong>Developer:</strong> <span id="gd-dev"></span></div>
                             <div><strong>Publisher:</strong> Glitch Vault</div>
-                            <div><strong>Release Date:</strong> Dec 12, 2026</div>
-                            <div><strong>Rating:</strong> <i class="fas fa-star"></i> 4.9/5</div>
+                            <div><strong>Release Date:</strong> <span id="gd-date"></span></div>
+                            <div><strong>Rating:</strong> <i class="fas fa-star"></i> <span id="gd-rating"></span></div>
                         </div>
-                        <div class="game-tags">
-                            <span class="badge">Open World</span>
-                            <span class="badge">Action</span>
-                            <span class="badge">Crime</span>
-                            <span class="badge">Multiplayer</span>
-                        </div>
+                        <div id="gd-tags" class="game-tags"></div>
                     </div>
                     <div class="col-lg-4">
-                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&q=80" alt="Game Cover" class="game-cover">
-                        <h2 class="price-tag">$69.99</h2>
-                        <a href="#preorder-form" class="btn btn-accent btn-lg w-100">Pre-Order</a>
+                        <img id="gd-cover" src="" alt="Game cover art" class="game-cover">
+                        <div id="gd-price" class="price-tag fs-2"></div>
+                        <a id="gd-preorder-btn" href="task3-form.html" class="btn btn-accent btn-lg w-100 mt-3">Pre-Order Now</a>
                     </div>
                 </div>
             </div>
         </section>
- 
+
         <section class="section-padding bg-soft">
             <div class="container">
-                <h2 class="section-title">System Requirements</h2>
-                <p>Make sure your rig is ready for the neon lights.</p>
-                <div class="table-responsive">
-                    <table class="custom-table">
-                        <thead>
-                            <tr>
-                                <th>COMPONENT</th>
-                                <th>MINIMUM</th>
-                                <th>RECOMMENDED</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td><strong>OS</strong></td><td>Windows 10 64-bit</td><td>Windows 11 64-bit</td></tr>
-                            <tr><td><strong>Processor</strong></td><td>Intel Core i5-8400</td><td>Intel Core i7-10700K</td></tr>
-                            <tr><td><strong>Memory</strong></td><td>12 GB RAM</td><td>16 GB RAM</td></tr>
-                            <tr><td><strong>Graphics</strong></td><td>NVIDIA GTX 1060</td><td>NVIDIA RTX 3070</td></tr>
-                            <tr><td><strong>Storage</strong></td><td>150 GB SSD</td><td>150 GB NVMe</td></tr>
-                        </tbody>
-                    </table>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <h2 class="section-title">System Requirements</h2>
+                        <p id="gd-req-intro"></p>
+                        <div class="table-responsive">
+                            <table class="custom-table w-100">
+                                <thead>
+                                    <tr>
+                                        <th>COMPONENT</th>
+                                        <th>MINIMUM</th>
+                                        <th>RECOMMENDED</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="gd-req-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -92,55 +84,14 @@
         <section id="preorder-form" class="section-padding">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <h2 class="section-title">Join the VIP Pre-Order</h2>
-                        <p>Reserve your copy today and get exclusive beta access.</p>
-                        <form class="custom-form">
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <label for="firstName">First Name</label>
-                                    <input type="text" class="form-control custom-input" id="firstName" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="lastName">Last Name</label>
-                                    <input type="text" class="form-control custom-input" id="lastName" required>
-                                </div>
-                                <div class="col-12">
-                                    <label for="email">Email</label>
-                                    <input type="email" class="form-control custom-input" id="email" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="platform">Platform</label>
-                                    <select class="form-select custom-input" id="platform" required>
-                                        <option value="" disabled selected>Select...</option>
-                                        <option value="pc">PC</option>
-                                        <option value="ps5">PlayStation 5</option>
-                                        <option value="xbox">Xbox Series X|S</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="edition">Edition</label>
-                                    <select class="form-select custom-input" id="edition" required>
-                                        <option value="standard">Standard ($69.99)</option>
-                                        <option value="ultimate">Ultimate ($99.99)</option>
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="newsletter" checked>
-                                        <label class="form-check-label" for="newsletter">Send me news and offers</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-accent btn-lg w-100">Secure Pre-Order</button>
-                                </div>
-                            </div>
-                        </form>
+                    <div class="col-lg-8 text-center">
+                        <h2 class="section-title">Ready to Pre-Order?</h2>
+                        <p style="color:var(--text-secondary);font-size:1.1rem;margin-bottom:32px;">Choose your edition, platform and promo code in our full Pre-Order Wizard. Takes less than a minute.</p>
+                        <a id="gd-preorder-btn2" href="task3-form.html" class="btn btn-accent btn-lg px-5">Go to Pre-Order Wizard</a>
                     </div>
                 </div>
             </div>
         </section>
-     
     </main>
 
     <footer class="custom-footer">
@@ -151,16 +102,17 @@
                     <p>Your premium destination for the best PC and console games.</p>
                 </div>
                 <div class="col-md-4">
-                    <h5>SUPPORT</h5>
-                    <a href="#">Help Center</a>
-                    <a href="#">Account</a>
-                    <a href="#">Refund Policy</a>
+                    <h5>QUICK LINKS</h5>
+                    <a href="index.html">Store</a>
+                    <a href="index.html#top-sellers">Library</a>
+                    <a href="task3-form.html">Pre-Order</a>
+                    <a href="index.html#news">News</a>
                 </div>
                 <div class="col-md-4">
                     <h5>FOLLOW US</h5>
-                    <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
-                    <a href="#"><i class="fab fa-discord"></i> Discord</a>
-                    <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+                    <a href="https://www.youtube.com/@RockstarGames" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> Rockstar Games</a>
+                    <a href="https://discord.com/invite/playstation" target="_blank" rel="noopener"><i class="fab fa-discord"></i> PlayStation</a>
+                    <a href="https://x.com/IGN" target="_blank" rel="noopener"><i class="fab fa-twitter"></i> IGN</a>
                 </div>
             </div>
             <hr>
@@ -169,5 +121,8 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/jquery-effects.js"></script>
+    <script src="js/game-details.js"></script>
 </body>
 </html>
