@@ -1,83 +1,33 @@
-// jQuery Effects — Glitch Vault
-$(function () {
-
-    // 1. SMOOTH SCROLL for all anchor links
-    $(document).on('click', 'a[href^="#"]', function (e) {
-        var href = $(this).attr('href');
-        if (href === '#') return;
-        var target = $(href);
-        if (target.length) {
-            e.preventDefault();
-            $('html, body').animate({ scrollTop: target.offset().top - 80 }, 500);
-        }
-    });
-
-    // 2. SCROLL-REVEAL — cards below the fold fade + rise into view
-    var $revealItems = $('.game-card, .news-card');
-
-    function revealOnScroll() {
-        var windowBottom = $(window).scrollTop() + $(window).height();
-        $revealItems.each(function () {
-            if ($(this).hasClass('reveal-visible')) return;
-            if ($(this).offset().top < windowBottom - 40) {
-                $(this).addClass('reveal-visible');
-            } else {
-                $(this).addClass('reveal-hidden');
-            }
-        });
+// Slide disclosures, fade feedback (common.js), and animate anchor scrolling.
+if (window.jQuery) {
+    jQuery.fx.off = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+document.addEventListener('click', (event) => {
+    const button = event.target.closest('.disclosure');
+    if (button) {
+        const panel = document.getElementById(button.getAttribute('aria-controls'));
+        const open = button.getAttribute('aria-expanded') !== 'true';
+        button.setAttribute('aria-expanded', String(open));
+        if (button.classList.contains('faq-question'))
+            button.querySelector('span').textContent = open ? '−' : '+';
+        else button.textContent = open ? 'Read less −' : 'Read more +';
+        if (window.jQuery) {
+            const target = jQuery(panel).stop(true, true);
+            if (open) target.slideDown(200);
+            else target.slideUp(200);
+        } else panel.style.display = open ? 'block' : 'none';
     }
-    $(window).on('scroll.reveal', revealOnScroll);
-    revealOnScroll();
-
-    // 3. TOAST NOTIFICATION — shown when bundle is saved
-    $(document).on('click', '#bundle-save-btn', function () {
-        if ($(this).prop('disabled')) return;
-        showToast('Build saved!');
-    });
-
-    // Also show toast on successful form submit
-    $(document).on('click', '[type="submit"]', function () {
-        var $form = $(this).closest('form');
-        if ($form.length && $form.attr('id') === 'validation-form') {
-            // toast shown after short delay to let validation run first
-            setTimeout(function () {
-                if ($('#success-result').is(':visible') || !$('#success-result').hasClass('d-none')) {
-                    showToast('Pre-order confirmed!');
-                }
-            }, 200);
-        }
-    });
-
-    function showToast(message) {
-        $('.gv-toast').remove(); // prevent stacking
-        var $toast = $('<div class="gv-toast">').text(message).appendTo('body');
-        $toast.animate({ opacity: 1 }, 300);
-        setTimeout(function () {
-            $toast.animate({ opacity: 0 }, 400, function () { $toast.remove(); });
-        }, 2500);
-    }
-
-    // 4. ACCORDION — News section "Read More" toggles excerpt
-    $(document).on('click', '.read-more', function (e) {
-        e.preventDefault();
-        var $card = $(this).closest('.news-card');
-        var $extra = $card.find('.news-extra');
-        if ($extra.length === 0) {
-            $extra = $('<p class="news-extra small mt-2" style="color:var(--text-secondary)">Full article coming soon. Stay tuned for more updates from Glitch Vault.</p>');
-            $card.find('.card-body').append($extra);
-            $extra.hide().slideDown(300);
-            $(this).html('Read Less <i class="fas fa-arrow-up"></i>');
-        } else {
-            $extra.slideUp(300, function () { $extra.remove(); });
-            $(this).html('Read More <i class="fas fa-arrow-right"></i>');
-        }
-    });
-
-    // 5. HOVER LIFT on game-card and news-card (jQuery hover)
-    $(document).on('mouseenter', '.game-card, .news-card', function () {
-        $(this).stop(true).animate({ 'margin-top': '-4px', 'margin-bottom': '4px' }, 150);
-    }).on('mouseleave', '.game-card, .news-card', function () {
-        $(this).stop(true).animate({ 'margin-top': '0px', 'margin-bottom': '0px' }, 150);
-    });
-
+    const link = event.target.closest('a[href^="#"]');
+    if (!link || link.closest('.account-tabs') || link.classList.contains('skip-link')) return;
+    const target = document.getElementById(link.hash.slice(1));
+    if (!target) return;
+    event.preventDefault();
+    if (window.jQuery)
+        jQuery('html, body')
+            .stop(true)
+            .animate({ scrollTop: target.getBoundingClientRect().top + window.scrollY - 100 }, 350);
+    else target.scrollIntoView();
+    history.replaceState(null, '', link.hash);
+    target.setAttribute('tabindex', '-1');
+    target.focus({ preventScroll: true });
 });

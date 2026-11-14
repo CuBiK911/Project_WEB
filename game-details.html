@@ -1,128 +1,110 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Details - Glitch Vault</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
-    <header>
-        <nav class="navbar navbar-expand-lg custom-navbar sticky-top">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">
-                    <i class="fas fa-gamepad"></i> GLITCH VAULT
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Glitch Vault game store." />
+        <link rel="icon" href="data:," />
+        <title>Game details | Glitch Vault</title>
+        <script src="js/theme.js"></script>
+        <link rel="stylesheet" href="assets/vendor/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <a class="skip-link" href="#main">Skip to content</a>
+        <header class="site-header">
+            <nav class="navbar navbar-expand-lg container" aria-label="Main navigation">
+                <a class="navbar-brand" href="index.html"
+                    ><span class="brand-mark" aria-hidden="true">G<span>V</span></span> GLITCH VAULT</a
+                >
+                <button
+                    class="navbar-toggler btn btn-quiet"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navigation"
+                    aria-controls="navigation"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    Menu
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Store</a></li>
-                        <li class="nav-item"><a class="nav-link" href="index.html#top-sellers">Library</a></li>
-                        <li class="nav-item"><a class="nav-link" href="index.html#news">News</a></li>
-                        <li class="nav-item"><a class="nav-link" href="task3-form.html">Pre-Order</a></li>
+                <div class="collapse navbar-collapse" id="navigation">
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+                        <li class="nav-item"><a class="nav-link active" href="index.html">Store</a></li>
+                        <li class="nav-item"><a class="nav-link" href="task3-form.html">Pre-order</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="saved.html">Saved <span class="saved-count">0</span></a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="help.html">Help</a></li>
+                        <li class="nav-item"><a class="nav-link" href="policy.html">Policy</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-account-link href="account.html">Account</a>
+                        </li>
                     </ul>
+                    <button
+                        id="theme-toggle"
+                        class="btn btn-quiet theme-toggle"
+                        type="button"
+                        aria-pressed="false"
+                    >
+                        Light mode
+                    </button>
                 </div>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <section class="game-overview">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <span id="gd-badge" class="badge-accent">PRE-ORDER NOW</span>
-                        <h1 id="gd-title" style="margin-top:12px;"></h1>
-                        <p id="gd-desc"></p>
-                        <div class="game-meta">
-                            <div><strong>Developer:</strong> <span id="gd-dev"></span></div>
-                            <div><strong>Publisher:</strong> Glitch Vault</div>
-                            <div><strong>Release Date:</strong> <span id="gd-date"></span></div>
-                            <div><strong>Rating:</strong> <i class="fas fa-star"></i> <span id="gd-rating"></span></div>
-                        </div>
-                        <div id="gd-tags" class="game-tags"></div>
-                    </div>
-                    <div class="col-lg-4">
-                        <img id="gd-cover" src="" alt="Game cover art" class="game-cover">
-                        <div id="gd-price" class="price-tag fs-2"></div>
-                        <a id="gd-preorder-btn" href="task3-form.html" class="btn btn-accent btn-lg w-100 mt-3">Pre-Order Now</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section-padding bg-soft">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-10">
-                        <h2 class="section-title">System Requirements</h2>
-                        <p id="gd-req-intro"></p>
-                        <div class="table-responsive">
-                            <table class="custom-table w-100">
-                                <thead>
-                                    <tr>
-                                        <th>COMPONENT</th>
-                                        <th>MINIMUM</th>
-                                        <th>RECOMMENDED</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="gd-req-body"></tbody>
-                            </table>
-                        </div>
+            </nav>
+        </header>
+        <main id="main">
+            <section class="section-padding container" id="game-details"></section>
+            <section class="section-padding section-soft" id="requirements-section">
+                <div class="container">
+                    <h2>System requirements</h2>
+                    <p>Example PC specifications for this fictional catalog.</p>
+                    <div class="table-wrap">
+                        <table class="table requirements">
+                            <caption>
+                                Minimum and recommended PC specifications
+                            </caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Component</th>
+                                    <th scope="col">Minimum</th>
+                                    <th scope="col">Recommended</th>
+                                </tr>
+                            </thead>
+                            <tbody id="requirements-body"></tbody>
+                        </table>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section id="preorder-form" class="section-padding">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 text-center">
-                        <h2 class="section-title">Ready to Pre-Order?</h2>
-                        <p style="color:var(--text-secondary);font-size:1.1rem;margin-bottom:32px;">Choose your edition, platform and promo code in our full Pre-Order Wizard. Takes less than a minute.</p>
-                        <a id="gd-preorder-btn2" href="task3-form.html" class="btn btn-accent btn-lg px-5">Go to Pre-Order Wizard</a>
-                    </div>
+            </section>
+        </main>
+        <footer class="site-footer">
+            <div class="container footer-grid">
+                <div>
+                    <a class="footer-brand" href="index.html">GLITCH VAULT</a>
+                    <p>Your destination for PC and console games.</p>
+                </div>
+                <div>
+                    <h2>Account</h2>
+                    <a href="account.html#login">Log in</a>
+                    <a href="account.html#register">Register</a>
+                    <a href="profile.html">Profile</a>
+                </div>
+                <div>
+                    <h2>Policy</h2>
+                    <a href="policy.html">Privacy &amp; terms</a>
+                </div>
+                <div>
+                    <h2>Help center</h2>
+                    <a href="help.html">FAQ</a>
                 </div>
             </div>
-        </section>
-    </main>
-
-    <footer class="custom-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h5>GLITCH VAULT</h5>
-                    <p>Your premium destination for the best PC and console games.</p>
-                </div>
-                <div class="col-md-4">
-                    <h5>QUICK LINKS</h5>
-                    <a href="index.html">Store</a>
-                    <a href="index.html#top-sellers">Library</a>
-                    <a href="task3-form.html">Pre-Order</a>
-                    <a href="index.html#news">News</a>
-                </div>
-                <div class="col-md-4">
-                    <h5>FOLLOW US</h5>
-                    <a href="https://www.youtube.com/@RockstarGames" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> Rockstar Games</a>
-                    <a href="https://discord.com/invite/playstation" target="_blank" rel="noopener"><i class="fab fa-discord"></i> PlayStation</a>
-                    <a href="https://x.com/IGN" target="_blank" rel="noopener"><i class="fab fa-twitter"></i> IGN</a>
-                </div>
-            </div>
-            <hr>
-            <p class="text-center">&copy; 2026 Glitch Vault. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="js/jquery-effects.js"></script>
-    <script src="js/game-details.js"></script>
-</body>
+            <div class="container footer-bottom">&copy; 2026 Glitch Vault</div>
+        </footer>
+        <div id="toast" class="gv-toast" role="status" aria-live="polite"></div>
+        <script src="assets/vendor/bootstrap.bundle.min.js"></script>
+        <script src="assets/vendor/jquery.min.js"></script>
+        <script src="js/data.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/jquery-effects.js"></script>
+        <script src="js/game-details.js"></script>
+    </body>
 </html>

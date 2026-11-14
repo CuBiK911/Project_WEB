@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Glitch Vault game store." />
+        <link rel="icon" href="data:," />
+        <title>Help center | Glitch Vault</title>
+        <script src="js/theme.js"></script>
+        <link rel="stylesheet" href="assets/vendor/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <a class="skip-link" href="#main">Skip to content</a>
+        <header class="site-header">
+            <nav class="navbar navbar-expand-lg container" aria-label="Main navigation">
+                <a class="navbar-brand" href="index.html"
+                    ><span class="brand-mark" aria-hidden="true">G<span>V</span></span> GLITCH VAULT</a
+                >
+                <button
+                    class="navbar-toggler btn btn-quiet"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navigation"
+                    aria-controls="navigation"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    Menu
+                </button>
+                <div class="collapse navbar-collapse" id="navigation">
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Store</a></li>
+                        <li class="nav-item"><a class="nav-link" href="task3-form.html">Pre-order</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="saved.html">Saved <span class="saved-count">0</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="help.html">Help</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="policy.html">Policy</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-account-link href="account.html">Account</a>
+                        </li>
+                    </ul>
+                    <button
+                        id="theme-toggle"
+                        class="btn btn-quiet theme-toggle"
+                        type="button"
+                        aria-pressed="false"
+                    >
+                        Light mode
+                    </button>
+                </div>
+            </nav>
+        </header>
+        <main id="main">
+            <section class="section-padding container narrow">
+                <h1>Help Center</h1>
+                <label for="faq-search">Search questions</label
+                ><input
+                    id="faq-search"
+                    type="search"
+                    class="form-control"
+                    placeholder="Try accounts, bundles, or promo codes"
+                />
+                <p id="faq-count" class="status" role="status"></p>
+                <div class="faq-list">
+                    <section class="faq-item" id="orders">
+                        <h2>
+                            <button
+                                class="disclosure faq-question"
+                                aria-expanded="false"
+                                aria-controls="orders-answer"
+                            >
+                                Can I actually buy a game here?<span aria-hidden="true">+</span>
+                            </button>
+                        </h2>
+                        <div id="orders-answer" class="disclosure-body">
+                            <p>You can save a demo reservation. No payment is required.</p>
+                        </div>
+                    </section>
+                    <section class="faq-item" id="faq-account">
+                        <h2>
+                            <button
+                                class="disclosure faq-question"
+                                aria-expanded="false"
+                                aria-controls="faq-account-answer"
+                            >
+                                How do I create an account?<span aria-hidden="true">+</span>
+                            </button>
+                        </h2>
+                        <div id="faq-account-answer" class="disclosure-body">
+                            <p>
+                                Open Account and choose Register. After registering, log in to see your
+                                profile.
+                            </p>
+                        </div>
+                    </section>
+                    <section class="faq-item" id="faq-saved">
+                        <h2>
+                            <button
+                                class="disclosure faq-question"
+                                aria-expanded="false"
+                                aria-controls="faq-saved-answer"
+                            >
+                                Where are my saved games and bundles?<span aria-hidden="true">+</span>
+                            </button>
+                        </h2>
+                        <div id="faq-saved-answer" class="disclosure-body">
+                            <p>Open Saved in the navigation to see or remove your games and bundles.</p>
+                        </div>
+                    </section>
+                    <section class="faq-item" id="faq-bundle">
+                        <h2>
+                            <button
+                                class="disclosure faq-question"
+                                aria-expanded="false"
+                                aria-controls="faq-bundle-answer"
+                            >
+                                How does the bundle budget work?<span aria-hidden="true">+</span>
+                            </button>
+                        </h2>
+                        <div id="faq-bundle-answer" class="disclosure-body">
+                            <p>
+                                Choose one item per category. You can save the bundle when the total fits the
+                                budget.
+                            </p>
+                        </div>
+                    </section>
+                    <section class="faq-item" id="faq-promo">
+                        <h2>
+                            <button
+                                class="disclosure faq-question"
+                                aria-expanded="false"
+                                aria-controls="faq-promo-answer"
+                            >
+                                Which promo codes can I use?<span aria-hidden="true">+</span>
+                            </button>
+                        </h2>
+                        <div id="faq-promo-answer" class="disclosure-body">
+                            <p>NEON20 gives 20% off and VAULT10 gives 10% off.</p>
+                        </div>
+                    </section>
+                    <section class="faq-item" id="faq-theme">
+                        <h2>
+                            <button
+                                class="disclosure faq-question"
+                                aria-expanded="false"
+                                aria-controls="faq-theme-answer"
+                            >
+                                How do I change the color mode?<span aria-hidden="true">+</span>
+                            </button>
+                        </h2>
+                        <div id="faq-theme-answer" class="disclosure-body">
+                            <p>Use the theme button in the navigation. On mobile, open Menu first.</p>
+                        </div>
+                    </section>
+                    <section class="faq-item" id="faq-data">
+                        <h2>
+                            <button
+                                class="disclosure faq-question"
+                                aria-expanded="false"
+                                aria-controls="faq-data-answer"
+                            >
+                                Why is my data missing on another device?<span aria-hidden="true">+</span>
+                            </button>
+                        </h2>
+                        <div id="faq-data-answer" class="disclosure-body">
+                            <p>Your data is stored in the browser you used to save it.</p>
+                        </div>
+                    </section>
+                    <section class="faq-item" id="faq-password">
+                        <h2>
+                            <button
+                                class="disclosure faq-question"
+                                aria-expanded="false"
+                                aria-controls="faq-password-answer"
+                            >
+                                What if I forget my password?<span aria-hidden="true">+</span>
+                            </button>
+                        </h2>
+                        <div id="faq-password-answer" class="disclosure-body">
+                            <p>Register another account with a different email address.</p>
+                        </div>
+                    </section>
+                </div>
+                <p id="faq-empty" class="empty-state" hidden>
+                    No matching questions. Try a shorter search or clear the field.
+                </p>
+            </section>
+        </main>
+        <footer class="site-footer">
+            <div class="container footer-grid">
+                <div>
+                    <a class="footer-brand" href="index.html">GLITCH VAULT</a>
+                    <p>Your destination for PC and console games.</p>
+                </div>
+                <div>
+                    <h2>Account</h2>
+                    <a href="account.html#login">Log in</a>
+                    <a href="account.html#register">Register</a>
+                    <a href="profile.html">Profile</a>
+                </div>
+                <div>
+                    <h2>Policy</h2>
+                    <a href="policy.html">Privacy &amp; terms</a>
+                </div>
+                <div>
+                    <h2>Help center</h2>
+                    <a href="help.html">FAQ</a>
+                </div>
+            </div>
+            <div class="container footer-bottom">&copy; 2026 Glitch Vault</div>
+        </footer>
+        <div id="toast" class="gv-toast" role="status" aria-live="polite"></div>
+        <script src="assets/vendor/bootstrap.bundle.min.js"></script>
+        <script src="assets/vendor/jquery.min.js"></script>
+        <script src="js/data.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/jquery-effects.js"></script>
+        <script src="js/help.js"></script>
+    </body>
+</html>

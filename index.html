@@ -1,314 +1,306 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glitch Vault - Premium Game Store</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
-    <header>
-        <nav class="navbar navbar-expand-lg custom-navbar sticky-top">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">
-                    <i class="fas fa-gamepad"></i> GLITCH VAULT
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Glitch Vault game store." />
+        <link rel="icon" href="data:," />
+        <title>Glitch Vault - Premium Game Store</title>
+          <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+        <script src="js/theme.js"></script>
+        <link rel="stylesheet" href="assets/vendor/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <a class="skip-link" href="#main">Skip to content</a>
+        <header class="site-header">
+            <nav class="navbar navbar-expand-lg container" aria-label="Main navigation">
+                <a class="navbar-brand" href="index.html"
+                    ><span class="brand-mark" aria-hidden="true">G<span>V</span></span> GLITCH VAULT</a
+                >
+                <button
+                    class="navbar-toggler btn btn-quiet"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navigation"
+                    aria-controls="navigation"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    Menu
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link active" href="index.html">Store</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#top-sellers">Library</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#news">News</a></li>
-                        <li class="nav-item"><a class="nav-link" href="task3-form.html">Pre-Order</a></li>
+                <div class="collapse navbar-collapse" id="navigation">
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Store</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="task3-form.html">Pre-order</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="saved.html">Saved <span class="saved-count">0</span></a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="help.html">Help</a></li>
+                        <li class="nav-item"><a class="nav-link" href="policy.html">Policy</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-account-link href="account.html">Account</a>
+                        </li>
                     </ul>
+                    <button
+                        id="theme-toggle"
+                        class="btn btn-quiet theme-toggle"
+                        type="button"
+                        aria-pressed="false"
+                    >
+                        Light mode
+                    </button>
                 </div>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        
-        <section class="hero-section">
-         
-<small class="position-absolute bottom-0 end-0 m-2 text-white-50" style="font-size: 0.6rem; z-index: 1;">
-    Video by <a href="https://blz-contentstack-assets.akamaized.net/v3/assets/blt2477dcaf4ebd440c/blt2034b940dd314c20/68c0bb29c7462e7b39889792/F2P_Trailer_bug.mp4" target="_blank" class="text-white-50 text-decoration-none hover:text-white">Blizzard</a>
-</small>
-            <div class="hero-video-wrap">
-                <video class="hero-video" autoplay loop muted playsinline preload="auto"
-                       poster="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1920&q=80">
-                    <source src="https://blz-contentstack-assets.akamaized.net/v3/assets/blt2477dcaf4ebd440c/blt2034b940dd314c20/68c0bb29c7462e7b39889792/F2P_Trailer_bug.mp4" type="video/mp4">
-                    <source src="https://blz-contentstack-assets.akamaized.net/v3/assets/blt2477dcaf4ebd440c/bltf9c7db923323e5f5/68c0bb39017d8cd9c8547c9d/F2P_Trailer_bug.webm" type="video/webm">
+            </nav>
+        </header>
+        <main id="main">
+            <section class="hero" aria-labelledby="hero-title">
+                <video
+                    id="hero-video"
+                    class="hero-video"
+                    autoplay
+                    loop
+                    muted
+                    playsinline
+                    preload="metadata"
+                    poster="assets/images/gaming-stage.jpg"
+                    aria-hidden="true"
+                >
+                    <source src="assets/video/blizzard-hero.mp4" type="video/mp4" />
                 </video>
-            </div>
-            <div class="container">
-                <div class="hero-content">
-                    <span class="badge-accent">NEW RELEASE</span>
-                    <h1>Major Theft Auto 6: <span class="text-accent">2026</span></h1>
-                    <p>Dive into the sun-drenched, crime-ridden streets of Vice City. The most ambitious open-world experience of the decade is finally here.</p>
-                    <div class="hero-buttons">
-                        <a href="game-details.html?game=mta6" class="btn btn-accent ">Buy Now - $69.99</a>
-                        <a href="https://youtu.be/GeMKZJaw_Ms" target="_blank" rel="noopener" class="btn btn-outline-light"><i class="fas fa-play me-2"></i>Watch Trailer</a>
+                <div class="container hero-copy">
+                    <span class="hero-badge">New release</span>
+                    <h1 id="hero-title">Major Theft Auto 6: <span>2026</span></h1>
+                    <p>Dive into the sun-drenched, crime-ridden streets of Vice City.</p>
+                    <div class="button-row">
+                        <a class="btn btn-accent" href="game-details.html?game=mta6">Buy Now - $69.99</a>
+                        <a
+                            class="btn btn-quiet"
+                            href="https://youtu.be/GeMKZJaw_Ms"
+                            target="_blank"
+                            rel="noopener"
+                            >Watch Trailer</a
+                        >
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <section id="top-sellers" class="section-padding">
-            <div class="container">
-                <h2 class="section-title">Top Sellers</h2>
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="game-card">
-                            <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=600&q=80" alt="Echoes of Aethelgard — dark fantasy RPG cover" class="game-image">
-                            <div class="card-body">
-                                <h5>Echoes of Aethelgard</h5>
-                                <p>Dark Fantasy Action-RPG. Shape the cursed kingdom with your choices.</p>
-                                <div class="card-footer">
-                                    <span class="price-tag">$59.99</span>
-                                    <a href="game-details.html?game=echoes" class="btn btn-accent btn-sm">View Details</a>
+                <div class="hero-controls">
+                    <button id="hero-playback" type="button" class="btn btn-quiet btn-sm" hidden>
+                        Pause video
+                    </button>
+                    <small>Video by Blizzard</small>
+                </div>
+            </section>
+            <section class="section-padding container" id="catalog">
+                <h2>Top Sellers</h2>
+                <div class="filter-bar">
+                    <div>
+                        <label for="game-search">Search games</label
+                        ><input
+                            type="search"
+                            id="game-search"
+                            class="form-control"
+                            placeholder="Search by title or genre"
+                        />
+                    </div>
+                    <div>
+                        <label for="game-filter">Genre</label
+                        ><select id="game-filter" class="form-select">
+                            <option value="all">All genres</option>
+                            <option>Action</option>
+                            <option>RPG</option>
+                            <option>Cozy</option>
+                            <option>Strategy</option>
+                        </select>
+                    </div>
+                    <p id="catalog-count" role="status"></p>
+                </div>
+                <div id="catalog-grid" class="row g-4"></div>
+                <div id="catalog-empty" class="empty-state" hidden>
+                    <h3>No games found</h3>
+                    <p>Try another title or browse all four games.</p>
+                    <button id="reset-search" class="btn btn-quiet">Reset filters</button>
+                </div>
+            </section>
+            <section class="section-padding section-soft" id="news">
+                <div class="container">
+                    <h2>Latest News</h2>
+                    <div class="row g-4 mt-2">
+                        <article class="col-md-4">
+                            <div class="news-card panel">
+                                <img
+                                    class="news-image"
+                                    src="assets/images/gaming-stage.jpg"
+                                    alt="Player at an esports tournament"
+                                />
+                                <h3>Bundle Builder Update</h3>
+                                <p>Pick a game, an extra, and merchandise.</p>
+                                <button
+                                    class="text-button disclosure"
+                                    aria-expanded="false"
+                                    aria-controls="note-bundles"
+                                >
+                                    Read more +
+                                </button>
+                                <div id="note-bundles" class="disclosure-body">
+                                    <p>Set a budget and save your bundle when the total fits.</p>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="game-card">
-                            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&q=80" alt="Whispers in the Pines — cozy farming mystery cover" class="game-image">
-                            <div class="card-body">
-                                <h5>Whispers in the Pines</h5>
-                                <p>Cozy Mystery / Farming Sim. Grow crops and solve forest secrets.</p>
-                                <div class="card-footer">
-                                    <span class="price-tag">$19.99</span>
-                                    <a href="game-details.html?game=whispers" class="btn btn-accent btn-sm">View Details</a>
+                        </article>
+                        <article class="col-md-4">
+                            <div class="news-card panel">
+                                <img
+                                    class="news-image"
+                                    src="assets/images/gaming-desk.jpg"
+                                    alt="Two players using game controllers"
+                                />
+                                <h3>Saved Games</h3>
+                                <p>Keep track of the games you want to play.</p>
+                                <button
+                                    class="text-button disclosure"
+                                    aria-expanded="false"
+                                    aria-controls="note-saved"
+                                >
+                                    Read more +
+                                </button>
+                                <div id="note-saved" class="disclosure-body">
+                                    <p>Use Save on a game card, then open Saved to see your list.</p>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="game-card">
-                            <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=600&q=80" alt="Chrono Tactics — turn-based strategy cover" class="game-image">
-                            <div class="card-body">
-                                <h5>Chrono Tactics</h5>
-                                <p>Turn-Based Strategy. Rewind time to fix your tactical mistakes.</p>
-                                <div class="card-footer">
-                                    <span class="price-tag">$29.99</span>
-                                    <a href="game-details.html?game=chrono" class="btn btn-accent btn-sm">View Details</a>
+                        </article>
+                        <article class="col-md-4">
+                            <div class="news-card panel">
+                                <img
+                                    class="news-image"
+                                    src="assets/images/arcade.jpg"
+                                    alt="Backlit gaming keyboard"
+                                />
+                                <h3>Pre-order Offers</h3>
+                                <p>Use a promo code on your reservation.</p>
+                                <button
+                                    class="text-button disclosure"
+                                    aria-expanded="false"
+                                    aria-controls="note-orders"
+                                >
+                                    Read more +
+                                </button>
+                                <div id="note-orders" class="disclosure-body">
+                                    <p>Use NEON20 for 20% off or VAULT10 for 10% off.</p>
                                 </div>
                             </div>
-                        </div>
+                        </article>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        
-        <section id="news" class="section-padding bg-soft">
-            <div class="container">
-                <h2 class="section-title">Latest News</h2>
-                <div class="row g-4">
-                    <article class="col-md-6 col-lg-4">
-                        <div class="news-card">
-                            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&q=80" alt="Neon Vice 2026 Patch 1.2 news" class="news-image">
-                            <div class="card-body">
-                                <span class="badge-accent">UPDATE</span>
-                                <h5>Neon Vice: 2026 Patch 1.2 Released</h5>
-                                <p>Check out the new vehicles, bug fixes, and the highly requested multiplayer tweaks.</p>
-                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+            </section>
+            <section class="section-padding container" id="game-section">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6">
+                        <h2>Price Hike Challenge</h2>
+                        <p>Guess whether the next game costs more or less. You have three lives.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <div id="game-board" class="panel challenge">
+                            <div class="game-board-header">
+                                <div>Lives<strong id="ui-lives">3</strong></div>
+                                <div>Streak<strong id="ui-streak">0</strong></div>
+                                <div>Best<strong id="ui-best">0</strong></div>
+                            </div>
+                            <p class="eyebrow">CURRENT GAME</p>
+                            <h3 id="ui-current-name">Loading game</h3>
+                            <div id="ui-current-price" class="challenge-price">$0.00</div>
+                            <p>Next up: <strong id="ui-next-name"></strong></p>
+                            <div class="button-row">
+                                <button class="btn btn-quiet game-btn" data-guess="lower">↓ Lower</button
+                                ><button class="btn btn-accent game-btn" data-guess="higher">
+                                    ↑ Higher / equal
+                                </button>
+                            </div>
+                            <p id="ui-message" class="status" aria-live="polite"></p>
+                            <div id="ui-restart-area" class="d-none">
+                                <button id="btn-restart" class="btn btn-accent">Play again</button>
                             </div>
                         </div>
-                    </article>
-                    <article class="col-md-6 col-lg-4">
-                        <div class="news-card">
-                            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&q=80" alt="Glitch Vault Summer Sale announcement" class="news-image">
-                            <div class="card-body">
-                                <span class="badge bg-danger">EVENT</span>
-                                <h5>Glitch Vault Summer Sale Starts Friday</h5>
-                                <p>Get up to 75% off on hundreds of indie and AAA titles. Don't miss out.</p>
-                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </section>
+            <section class="section-padding section-soft" id="bundle-section">
+                <div class="container">
+                    <h2>Build Your Bundle</h2>
+                    <p>Choose one item per category.</p>
+                    <div class="row g-4">
+                        <div class="col-lg-8">
+                            <div class="filter-bar">
+                                <label for="bundle-filter">Show items</label
+                                ><select id="bundle-filter" class="form-select">
+                                    <option value="all">All items</option>
+                                    <option value="game">Games</option>
+                                    <option value="dlc">Extras</option>
+                                    <option value="merch">Merchandise</option>
+                                </select>
                             </div>
+                            <div id="bundle-grid" class="row g-3"></div>
                         </div>
-                    </article>
-                    <article class="col-md-6 col-lg-4">
-                        <div class="news-card">
-                            <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=600&q=80" alt="Echoes of Aethelgard wins Game of the Year" class="news-image">
-                            <div class="card-body">
-                                <span class="badge-accent">REVIEW</span>
-                                <h5>Echoes of Aethelgard Wins Game of the Year</h5>
-                                <p>The dark fantasy RPG has taken the gaming world by storm, winning 5 major awards.</p>
-                                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        <aside class="col-lg-4">
+                            <div class="panel bundle-summary">
+                                <h3>Your selection</h3>
+                                <label for="bundle-slider" class="split-line"
+                                    >Budget <strong id="bundle-budget-val">$100.00</strong></label
+                                ><input
+                                    id="bundle-slider"
+                                    class="form-range"
+                                    type="range"
+                                    min="50"
+                                    max="250"
+                                    step="10"
+                                    value="100"
+                                />
+                                <ul id="bundle-list" class="selection-list"></ul>
+                                <div class="split-line total-line">
+                                    <span>Total</span><strong id="bundle-total-price">$0.00</strong>
+                                </div>
+                                <p id="bundle-status" class="status" role="status"></p>
+                                <button id="bundle-save-btn" class="btn btn-accent w-100" disabled>
+                                    Save bundle</button
+                                ><a class="subtle-link" href="saved.html">View saved bundles →</a>
                             </div>
-                        </div>
-                    </article>
+                        </aside>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="site-footer">
+            <div class="container footer-grid">
+                <div>
+                    <a class="footer-brand" href="index.html">GLITCH VAULT</a>
+                    <p>Your destination for PC and console games.</p>
+                </div>
+                <div>
+                    <h2>Account</h2>
+                    <a href="account.html#login">Log in</a>
+                    <a href="account.html#register">Register</a>
+                    <a href="profile.html">Profile</a>
+                </div>
+                <div>
+                    <h2>Policy</h2>
+                    <a href="policy.html">Privacy &amp; terms</a>
+                </div>
+                <div>
+                    <h2>Help center</h2>
+                    <a href="help.html">FAQ</a>
                 </div>
             </div>
-        </section>
-        <section id="game-section" class="section-padding">
-            <div class="container">
-                <h2 class="section-title">🎮 Price Hike Challenge</h2>
-                <div id="game-board" class="game-board-card mx-auto">
-                    <div class="game-board-header">
-                        <div class="text-center">
-                            <small class="d-block" style="color:var(--text-secondary)">Lives</small>
-                            <strong id="ui-lives" class="fs-5" style="color:#e05555">❤️❤️❤️</strong>
-                        </div>
-                        <div class="text-center">
-                            <small class="d-block" style="color:var(--text-secondary)">Streak</small>
-                            <strong id="ui-streak" class="fs-5 text-accent">0</strong>
-                        </div>
-                        <div class="text-center">
-                            <small class="d-block" style="color:var(--text-secondary)">Best</small>
-                            <strong id="ui-best" class="fs-5" style="color:var(--text-primary)">0</strong>
-                        </div>
-                    </div>
-                    <div class="p-4 text-center">
-                        <p class="small mb-1" style="color:var(--text-secondary)">Current Item:</p>
-                        <h3 id="ui-current-name" class="fw-bold mb-2" style="color:var(--text-primary);font-family:'Montserrat',sans-serif">Loading...</h3>
-                        <div id="ui-current-price" class="display-4 fw-bold text-accent mb-4">$00</div>
-                        <p class="mb-3" style="color:var(--text-secondary)">Will the NEXT item be higher or lower?</p>
-                        <div class="d-grid gap-3">
-                            <button type="button" class="btn btn-outline-light btn-lg game-btn" data-guess="lower">⬇️ LOWER</button>
-                            <button type="button" class="btn btn-accent btn-lg game-btn" data-guess="higher">⬆️ HIGHER / EQUAL</button>
-                        </div>
-                        <div id="ui-message" class="mt-3 fw-bold" aria-live="polite"></div>
-                        <div id="ui-restart-area" class="mt-3 d-none">
-                            <button type="button" id="btn-restart" class="btn btn-warning w-100">▶ Play Again</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="bundle-section" class="section-padding bg-soft">
-    <div class="container">
-        <h2 class="section-title mb-4 text-center">🛒 Build Your Ultimate Bundle</h2>
-        <p class="text-center mb-5">Select one item per category. Stay within budget to save.</p>
-
-        <div class="row g-4 align-items-start">
-            
-            
-            <div class="col-lg-8">
-                
-                <div class="d-flex justify-content-between align-items-center mb-4 p-3 rounded" style="background-color: var(--bg-card); border: 1px solid var(--border);">
-                    <span class="fw-bold text-uppercase small" style="color: var(--text-primary);">Filter Items:</span>
-                    <select id="bundle-filter" class="form-select form-select-sm w-auto" style="background-color: var(--bg-deep); color: var(--text-primary); border-color: var(--border);">
-                        <option value="all">All Items</option>
-                        <option value="game">Games</option>
-                        <option value="dlc">DLCs</option>
-                        <option value="merch">Merchandise</option>
-                    </select>
-                </div>
-
-                
-                <div id="bundle-grid" class="row g-3">
-                    
-
-                    
-                </div>
-                
-                
-                <div id="bundle-empty-msg" class="text-center py-5 d-none">
-                    <i class="fas fa-box-open display-4" ></i>
-                    <p class="mt-3" >No items match this filter.</p>
-                </div>
-            </div>
-
-            
-            <div class="col-lg-4">
-                <div class="card sticky-top shadow-lg" style="top: 100px; background-color: var(--bg-card); border: 1px solid var(--border);">
-                    
-                    
-                    <div class="card-header py-3 px-4" style="background-color: rgba(0,0,0,0.2); border-bottom: 1px solid var(--border);">
-                        <h5 class="mb-0 fw-bold" style="font-family: 'Montserrat', sans-serif; color: var(--text-primary);">Your Selection</h5>
-                    </div>
-
-                    
-                    <div class="card-body p-4">
-                        
-                        
-                        <div class="mb-4">
-                            <label class="form-label d-flex justify-content-between align-items-center mb-2">
-                                <span style="color: var(--text-secondary); font-size: 0.9rem;">Budget Limit</span>
-                                <strong id="bundle-budget-val" style="color: var(--accent); font-size: 1.1rem;">$100</strong>
-                            </label>
-                            <input type="range" class="form-range" id="bundle-slider" min="50" max="250" step="10" value="100">
-                        </div>
-
-                       
-                        <ul id="bundle-list" class="list-unstyled mb-4" style="min-height: 50px;"></ul>
-                        
-                        
-                        <div id="bundle-selection-hint" class="text-center py-3" >
-                            <i class="fas fa-shopping-basket me-2"></i> Nothing selected yet.
-                        </div>
-
-                        <hr style="border-color: var(--border);">
-
-                     
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <span style="color: var(--text-secondary);">Subtotal:</span>
-                            <strong id="bundle-total-price" style="color: var(--text-primary); font-size: 1.2rem;">$0.00</strong>
-                        </div>
-                        
-                        
-                        <div id="bundle-status" class="alert alert-danger d-none mt-3 py-2 px-3 small fw-bold" role="alert"></div>
-
-                       
-                        <button id="bundle-save-btn" class="btn btn-accent w-100 mt-3 py-3 fw-bold" disabled>
-                            <i class="fas fa-save me-2"></i> Save Build
-                        </button>
-                    </div>
-
-                  
-                    <div class="card-footer py-3 px-4" style="background-color: var(--bg-deep); border-top: 1px solid var(--border);">
-                        <h6 class="text-uppercase small fw-bold mb-3">
-                            Saved Builds (<span id="bundle-saved-count">0</span>/3)
-                        </h6>
-                        <div id="bundle-saved-list" class="d-flex flex-column gap-2">
-                           
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-    </main>
-
-    <footer class="custom-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h5>GLITCH VAULT</h5>
-                    <p>Your premium destination for the best PC and console games.</p>
-                </div>
-                <div class="col-md-4">
-                    <h5>QUICK LINKS</h5>
-                    <a href="index.html">Store</a>
-                    <a href="index.html#top-sellers">Library</a>
-                    <a href="task3-form.html">Pre-Order</a>
-                    <a href="index.html#news">News</a>
-                </div>
-                <div class="col-md-4">
-                    <h5>FOLLOW US</h5>
-                    <a href="https://www.youtube.com/@RockstarGames" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> Rockstar Games</a>
-                    <a href="https://discord.com/invite/playstation" target="_blank" rel="noopener"><i class="fab fa-discord"></i> PlayStation</a>
-                    <a href="https://x.com/IGN" target="_blank" rel="noopener"><i class="fab fa-twitter"></i> IGN</a>
-                </div>
-    </footer>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="js/jquery-effects.js"></script>
-    <script src="js/task1.js"></script>
-    <script src="js/task2.js"></script>
-</body>
+            <div class="container footer-bottom">&copy; 2026 Glitch Vault</div>
+        </footer>
+        <div id="toast" class="gv-toast" role="status" aria-live="polite"></div>
+        <script src="assets/vendor/bootstrap.bundle.min.js"></script>
+        <script src="assets/vendor/jquery.min.js"></script>
+        <script src="js/data.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/jquery-effects.js"></script>
+        <script src="js/store.js"></script>
+        <script src="js/hero-video.js"></script>
+        <script src="js/bundle.js"></script>
+        <script src="js/challenge.js"></script>
+    </body>
 </html>
